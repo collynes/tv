@@ -1,0 +1,15 @@
+RewriteEngine on
+
+# manual change the url base
+RewriteBase /
+
+RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://172.16.19.80/$1 [R,L]
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# otherwise forward it to index.php
+RewriteRule . index.php
+
+
